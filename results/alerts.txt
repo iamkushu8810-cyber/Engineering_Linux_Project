@@ -1,0 +1,15 @@
+# ALERTS — Linux-Based Heart Rate Data Monitoring and Analysis System
+# Generated  : 2026-11-18 03:38:12
+# Thresholds : normal 60-100 BPM | critical <=45 or >=140 BPM
+
+[2026-11-18 03:36:22] [WARNING]  sample 0010: 54 BPM (normal range: 60-100)
+[2026-11-18 03:36:37] [CRITICAL] sample 0025: 38 BPM (critical limits: <=45 / >=140)
+[2026-11-18 03:36:50] [WARNING]  sample 0038: 57 BPM (normal range: 60-100)
+[2026-11-18 03:36:56] [WARNING]  sample 0044: 105 BPM (normal range: 60-100)
+[2026-11-18 03:37:03] [WARNING]  sample 0051: 111 BPM (normal range: 60-100)
+[2026-11-18 03:37:19] [WARNING]  sample 0067: 121 BPM (normal range: 60-100)
+[2026-11-18 03:37:24] [WARNING]  sample 0072: 53 BPM (normal range: 60-100)
+[2026-11-18 03:37:36] [WARNING]  sample 0084: 54 BPM (normal range: 60-100)
+[2026-11-18 03:37:42] [CRITICAL] sample 0090: 40 BPM (critical limits: <=45 / >=140)
+[2026-11-18 03:37:57] [CRITICAL] sample 0105: 41 BPM (critical limits: <=45 / >=140)
+[2026-11-18 03:38:00] [WARNING]  sample 0108: 51 BPM (normal range: 60-100)

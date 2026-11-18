@@ -1,0 +1,51 @@
+================================================================
+ LINUX-BASED HEART RATE DATA MONITORING AND ANALYSIS SYSTEM
+ FINAL MONITORING REPORT
+================================================================
+ Patient / Subject : P-001
+ Report generated  : 2026-11-18 03:38:16
+ Data source       : data/processed/cleaned_data.csv
+ Observation window: 2026-11-18 03:36:13  ->  2026-11-18 03:38:12  (1m 59s)
+----------------------------------------------------------------
+ 1. EXECUTIVE SUMMARY
+    Overall status : ATTENTION
+    Critical readings detected — review alerts and verify the sensor.
+    120 readings analysed: 109 normal, 8 warning, 3 critical.
+
+ 2. KEY METRICS
+    Average heart rate : 67.2 BPM
+    Median             : 67.0 BPM
+    Range              : 38 - 121 BPM
+    Resting (est.)     : 62 BPM
+    Std deviation      : 9.34
+
+ 3. THRESHOLDS USED
+    Normal   : 60 - 100 BPM
+    Critical : <= 45 or >= 140 BPM
+
+ 4. HEART-RATE TREND
+    ▄▃▃▃▂▃▃▃▃▃▄▄▁▄▄▄▄▄▂▄▄▆▄▄▃▇▃▃▃▃▃▃▃█▃▂▃▄▃▃▃▂▃▃▁▂▃▂▂▃▃▃▁▂▄▄▄▄▄▄
+
+ 5. ALERT LOG (11 total, latest 10 shown)
+    [2026-11-18 03:36:37] [CRITICAL] sample 0025: 38 BPM (critical limits: <=45 / >=140)
+    [2026-11-18 03:36:50] [WARNING]  sample 0038: 57 BPM (normal range: 60-100)
+    [2026-11-18 03:36:56] [WARNING]  sample 0044: 105 BPM (normal range: 60-100)
+    [2026-11-18 03:37:03] [WARNING]  sample 0051: 111 BPM (normal range: 60-100)
+    [2026-11-18 03:37:19] [WARNING]  sample 0067: 121 BPM (normal range: 60-100)
+    [2026-11-18 03:37:24] [WARNING]  sample 0072: 53 BPM (normal range: 60-100)
+    [2026-11-18 03:37:36] [WARNING]  sample 0084: 54 BPM (normal range: 60-100)
+    [2026-11-18 03:37:42] [CRITICAL] sample 0090: 40 BPM (critical limits: <=45 / >=140)
+    [2026-11-18 03:37:57] [CRITICAL] sample 0105: 41 BPM (critical limits: <=45 / >=140)
+    [2026-11-18 03:38:00] [WARNING]  sample 0108: 51 BPM (normal range: 60-100)
+
+ 6. RECOMMENDATIONS
+    - Investigate every CRITICAL alert; confirm whether it is a real event or sensor noise.
+
+ 7. GENERATED ARTEFACTS
+    data/raw/sensor_data.csv          raw sensor readings
+    data/processed/cleaned_data.csv   validated readings
+    data/processed/filtered_data.txt  abnormal readings only
+    results/summary.txt               statistical summary
+    results/alerts.txt                alert list
+    logs/monitor.log                  per-reading monitor log
+================================================================

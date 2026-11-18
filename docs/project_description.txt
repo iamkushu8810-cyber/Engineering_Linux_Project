@@ -1,0 +1,60 @@
+=====================================================================
+ PROJECT DESCRIPTION
+=====================================================================
+Title   : Linux-Based Heart Rate Data Monitoring and Analysis System
+Course  : Engineering Linux — Continuous Assessment 01
+Group   : 6
+
+1. ABSTRACT
+   This project builds an automated heart-rate monitoring pipeline
+   entirely from Linux command-line tools. Sensor readings (simulated
+   to represent a wearable pulse sensor) are collected, validated,
+   monitored against clinical thresholds, analysed statistically and
+   summarised in a report — all driven by Bash scripts, orchestrated
+   with a Makefile and supported by small Python helpers.
+
+2. OBJECTIVES
+   - Demonstrate practical use of the Linux shell and core utilities
+     (awk, sed, grep, sort, cut, head, tail, tr, tar, chmod).
+   - Build a modular, configurable, reproducible data pipeline.
+   - Detect abnormal heart-rate events and log them with timestamps.
+   - Produce readable statistics and a final report.
+   - Follow good engineering practice: logging, error handling,
+     version control, automated backups and testing.
+
+3. SYSTEM ARCHITECTURE
+   collect.sh -> monitor.sh -> analyze.sh -> report.sh -> backup.sh
+        |            |             |             |            |
+   data/raw    logs + alerts   data/processed  results/   backups/
+                               + summary.txt   report.txt
+
+4. MODULES
+   setup.sh    environment check, folders, permissions, log files
+   collect.sh  generates timestamped BPM readings (CSV)
+   monitor.sh  classifies each reading NORMAL / WARNING / CRITICAL
+   analyze.sh  cleans data, extracts anomalies, runs analysis.py
+   report.sh   builds results/report.txt using report.py
+   backup.sh   compressed, verified, rotated backups
+   analysis.py mean, median, min, max, std-dev, resting HR, trend
+   report.py   executive summary, alerts, recommendations
+
+5. CLASSIFICATION RULES (configurable in config/project.conf)
+   NORMAL   : 60 - 100 BPM
+   WARNING  : below 60 or above 100 BPM
+   CRITICAL : <= 45 or >= 140 BPM
+
+6. TOOLS AND TECHNOLOGIES
+   Linux (Ubuntu / WSL), Bash, GNU coreutils, awk, sed, grep, tar,
+   GNU Make, Python 3 (standard library), Git.
+
+7. EXPECTED OUTCOME
+   A fully automated pipeline that turns raw readings into alerts,
+   statistics and a final report with a single command: make all
+   The design is sensor-agnostic: replacing collect.sh with a real
+   sensor reader (e.g. Raspberry Pi + MAX30102) needs no other change.
+
+8. LIMITATIONS AND FUTURE WORK
+   - Data is simulated; real hardware integration is future work.
+   - Possible extensions: cron scheduling, e-mail alerts, charts,
+     web dashboard, heart-rate-variability analysis.
+=====================================================================

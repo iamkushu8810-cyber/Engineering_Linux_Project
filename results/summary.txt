@@ -1,0 +1,39 @@
+================================================================
+ HEART RATE ANALYSIS SUMMARY
+================================================================
+ Project    : Linux-Based Heart Rate Data Monitoring and Analysis System
+ Version    : 1.0.0
+ Generated  : 2026-11-18 03:38:16
+ Source     : data/processed/cleaned_data.csv
+----------------------------------------------------------------
+ DATASET
+   Samples         : 120
+   Period          : 2026-11-18 03:36:13  ->  2026-11-18 03:38:12
+   Duration        : 1m 59s
+
+ STATISTICS (BPM)
+   Mean            : 67.2 BPM
+   Median          : 67.0 BPM
+   Minimum         : 38 BPM
+   Maximum         : 121 BPM
+   Std deviation   : 9.34
+   Resting (est.)  : 62 BPM  (10th percentile)
+
+ CLASSIFICATION  (normal 60-100 | critical <=45 or >=140)
+   NORMAL   :  109   90.8%  ███████████████████████████
+   WARNING  :    8    6.7%  ██
+   CRITICAL :    3    2.5%  █
+
+ DISTRIBUTION BY ZONE
+   Below normal  :    8  ██
+   Normal range  :  109  ███████████████████████████
+   Above normal  :    3  █
+   Longest abnormal streak: 1 reading(s)
+
+ TREND
+   ▄▃▃▃▂▃▃▃▃▃▄▄▁▄▄▄▄▄▂▄▄▆▄▄▃▇▃▃▃▃▃▃▃█▃▂▃▄▃▃▃▂▃▃▁▂▃▂▂▃▃▃▁▂▄▄▄▄▄▄
+   (low = 38 BPM   high = 121 BPM)
+----------------------------------------------------------------
+   Assessment      : ATTENTION
+   Critical readings detected — review alerts and verify the sensor.
+================================================================

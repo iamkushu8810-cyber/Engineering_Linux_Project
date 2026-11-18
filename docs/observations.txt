@@ -1,0 +1,45 @@
+=====================================================================
+ OBSERVATIONS
+=====================================================================
+(Replace the bracketed values with the numbers from YOUR own run:
+ open results/summary.txt and results/alerts.txt.)
+
+1. RESULTS OF A TYPICAL RUN
+   - Readings collected      : [120]
+   - Average heart rate      : [about 72-76 BPM]
+   - Warnings / Critical     : [x] / [y]
+   - Overall assessment      : [STABLE / CAUTION / ATTENTION]
+   Because the simulator is random, every run gives slightly different
+   numbers; the monitored thresholds and the pipeline stay identical.
+
+2. WHAT WORKED WELL
+   - Keeping every threshold in config/project.conf meant no script
+     needed editing when limits changed.
+   - Using "set -Eeuo pipefail" and a trap on ERR made failures visible
+     immediately in logs/error.log.
+   - awk handled generation, validation and filtering in single passes.
+   - make all runs the entire workflow with one command.
+
+3. CHALLENGES AND HOW THEY WERE SOLVED
+   - Windows line endings (CRLF) can break numeric checks -> removed
+     with sed 's/\r$//' during cleaning.
+   - A loop at the end of a pipe runs in a subshell and loses its
+     counters -> solved with process substitution: done < <(command)
+   - head can close a pipe early and trigger pipefail -> display-only
+     pipelines are guarded with "|| true".
+
+4. LINUX CONCEPTS LEARNED
+   - Exit codes, strict mode, traps and structured logging.
+   - Permissions (chmod +x, 750) and why scripts need the execute bit.
+   - Text-processing pipelines (sed | awk | sort | cut | head).
+   - Reproducible automation with Make; verified, rotated backups.
+
+5. TESTING
+   - make test checks script syntax and verifies the Python analysis
+     against a fixed dataset (tests/test_data.csv) with known answers.
+
+6. POSSIBLE IMPROVEMENTS
+   - Read real sensor data (Raspberry Pi + MAX30102 over I2C).
+   - Schedule collection with cron; send e-mail alerts.
+   - Add charts and heart-rate-variability analysis.
+=====================================================================

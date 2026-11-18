@@ -1,0 +1,51 @@
+=====================================================================
+ LINUX COMMANDS USED IN THIS PROJECT
+=====================================================================
+COMMAND     PURPOSE                                  WHERE USED
+---------------------------------------------------------------------
+bash        run shell scripts                        every script
+source      load config into the current shell       all scripts
+set -Eeuo pipefail  strict mode: stop on errors      all scripts
+trap        run a handler when a command fails       .config
+mkdir -p    create directories (no error if exist)   setup.sh, collect.sh
+touch       create empty files / update timestamps   setup.sh
+chmod       change file permissions (+x, 750)        setup.sh
+ls -1t      list files newest first                  backup.sh
+cat         display / concatenate files              report.sh
+echo        print text, append to files (>>)         monitor.sh
+printf      formatted output (colours, columns)      all scripts
+date        timestamps (+%s epoch, formatted)        collect.sh, logs
+head        first N lines of a file                  collect.sh, analyze.sh
+tail -n +2  skip the CSV header line                 monitor.sh, analyze.sh
+wc -l       count lines (rows)                       analyze.sh, backup.sh
+sort -t, -k3,3nr  sort CSV numerically by column 3   analyze.sh
+cut -d, -f1,3     extract columns from CSV           analyze.sh
+tr ',' '\t' translate characters                     collect.sh
+sed 's/\r$//'     remove Windows line endings        analyze.sh
+awk -F,     field-based processing: generate,        collect.sh, analyze.sh
+            validate and filter data
+grep -E     regular-expression search                analyze.sh, Makefile
+xargs -r    build commands from standard input       backup.sh
+rm -f       delete files without prompting           backup.sh, Makefile
+mv          move/rename (atomic file replace)        collect.sh
+mktemp      create a safe temporary file             collect.sh
+tar -czf    create compressed archive                backup.sh
+tar -tzf    list archive contents (verification)     backup.sh
+du -h       human-readable file size                 backup.sh
+uname -r    kernel version                           setup.sh
+hostname    machine name                             setup.sh
+command -v  check whether a tool is installed        setup.sh, .config
+make        run targets defined in the Makefile      Makefile
+python3     run analysis.py and report.py            analyze.sh, report.sh
+git         version control                          whole project
+
+I/O REDIRECTION AND PIPES USED
+   >   overwrite file     >>  append to file     <   read from file
+   |   pipe output of one command into the next
+   <( ... )  process substitution (feeds a loop without a subshell)
+   2>&1 / >&2  standard-error handling
+
+EXAMPLE PIPELINE (analyze.sh)
+   tail -n +2 cleaned_data.csv | sort -t, -k3,3nr | head -n 5 | cut -d, -f1,3
+   => skip header, sort by BPM high to low, keep top 5, show time + BPM
+=====================================================================
