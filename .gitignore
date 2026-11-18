@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+
+# Backups are large and reproducible
+backups/*.tar.gz
+
+# Editor / OS clutter
+.vscode/
+.idea/
+*.swp
+.DS_Store
+*.tmp

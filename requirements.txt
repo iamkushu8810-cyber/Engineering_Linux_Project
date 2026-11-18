@@ -1,0 +1,5 @@
+# The whole pipeline uses only the Python 3 standard library
+# (csv, statistics, argparse, pathlib, datetime) — nothing to install.
+#
+# Optional, only if you later add graphical charts:
+# matplotlib>=3.5
