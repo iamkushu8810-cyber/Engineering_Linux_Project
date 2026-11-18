@@ -43,3 +43,16 @@
    - Schedule collection with cron; send e-mail alerts.
    - Add charts and heart-rate-variability analysis.
 =====================================================================
+
+RESULTS OF MY RUN (2026-11-18 03:39)
+   Samples         : 120
+   Mean            : 67.2 BPM
+   Median          : 67.0 BPM
+   Minimum         : 38 BPM
+   Maximum         : 121 BPM
+   Std deviation   : 9.34
+   Resting (est.)  : 62 BPM  (10th percentile)
+   Assessment      : ATTENTION
+
+Warnings raised: 8
+Critical alerts raised: 3
